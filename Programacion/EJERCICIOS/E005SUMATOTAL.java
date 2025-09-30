@@ -13,4 +13,9 @@ import java.lang.IO;
     }
 
     IO.println("La suma da: " + sumaTotal);
+    IO.println("La media es de: " + this.calcularMedia(sumaTotal, numeroVeces));
+}
+
+public int calcularMedia(int sumaNumeros, int cantidadNumeros) {
+        return sumaNumeros / cantidadNumeros;
 }
