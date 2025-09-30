@@ -1,6 +1,6 @@
 import java.lang.IO;
 
-public void main(String[]args) {
+void main() {
     for (int i = 1; i <= 10; i++) {
         IO.println(i);
         IO.println(dibujarAsteriscos(i));
