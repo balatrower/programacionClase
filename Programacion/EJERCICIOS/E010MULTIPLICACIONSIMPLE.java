@@ -16,6 +16,7 @@ void main() {
         multiplicador = multiplicando;
         multiplicando = ayudante;
     }
+
     int resultado = 0;
     for (int i = 0; i < multiplicador; i++) {
         resultado += multiplicando;
