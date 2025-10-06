@@ -9,8 +9,6 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 public class E011MULTIPLICACIONCONNEGATIVOS extends Application {
-    public E011MULTIPLICACIONCONNEGATIVOS() {
-    }
 
     public static void main(String[] args) {
         int multiplicando = Integer.parseInt(IO.readln("Ingrese un multiplicando:"));
