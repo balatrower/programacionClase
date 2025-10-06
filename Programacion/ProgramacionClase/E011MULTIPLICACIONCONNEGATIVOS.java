@@ -39,6 +39,7 @@ public class E011MULTIPLICACIONCONNEGATIVOS extends Application {
     public void start(Stage window) {
         Image imagenFondo = new Image(getClass().getResourceAsStream("/resources/imagen.JPG"));
         ImageView fondo = new ImageView(imagenFondo);
+        //relacion de aspecto de la foto es 3:2
         fondo.setFitWidth(1075);
         fondo.setFitHeight(717);
 

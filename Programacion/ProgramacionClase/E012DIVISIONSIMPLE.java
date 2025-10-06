@@ -13,20 +13,26 @@ import javafx.stage.Stage;
 public class E012DIVISIONSIMPLE extends Application {
     public static void main(String[] args) {
         int dividendo = Integer.parseInt(IO.readln("Ingrese dividendo: "));
-        int dividendoResto = dividendo;
 
         int divisor = Integer.parseInt(IO.readln("Ingrese divisor: "));
-        int divisorResto = divisor;
+
+        // ^ esto es el XOR (EXCLUSIVE OR) me pasaba que cuando los dos eran negativos se activaba con un simple || y mas shenanigans mios de Math.abs para el cociente
+        int signo = ((dividendo < 0) ^ (divisor < 0)) ? -1 : 1;
+
+
+        int absolutoDividendo = Math.abs(dividendo);
+        int absolutoDivisor = Math.abs(divisor);
 
         int cociente = 0;
-        while (dividendo > 0) {
-            dividendo -= divisor;
+        while (absolutoDividendo >= absolutoDivisor) {
+            absolutoDividendo -= absolutoDivisor;
             cociente++;
         }
+        int cocienteresultado = cociente * signo;
 
-        int resto = Math.abs(dividendoResto - (divisorResto * cociente));
+        int resto = dividendo - (divisor * cocienteresultado);
 
-        IO.println("El cociente es: " + cociente);
+        IO.println("El cociente es: " + cocienteresultado);
         IO.println("El resto es: " + resto);
 
         IO.println();
@@ -42,11 +48,11 @@ public class E012DIVISIONSIMPLE extends Application {
         double radio = 150.0;
         double centroVentanaX = 400;
         double centroVentanaY = 300;
-        double anguloPoligono = (double) 360 / (numeroLados); //angulo = 360 / numero de lados
+        double anguloPoligono = 360.0 / (numeroLados); //angulo = 360 / numero de lados
         Double[] arrayVerticesX = new Double[numeroLados];
         Double[] arrayVerticesY = new Double[numeroLados];
 
-        //sacar vertices para el poligonou y meterlos en cada array
+        //sacar vertices para el poligono y meterlos en cada array
         // x = r * coseno(angulo en radianes) + el centro del ciruclo
         // y = r * seno(angulo en radianes) + el centro del ciruclo, es lo mismo pero cambia el seno
         for (int i = 0; i < numeroLados; i++) {
