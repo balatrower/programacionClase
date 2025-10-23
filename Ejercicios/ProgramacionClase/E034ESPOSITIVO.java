@@ -1,6 +1,6 @@
 package ProgramacionClase;
 
-public class E031ESPOSITIVO {
+public class E034ESPOSITIVO {
     void main() {
         while (true) {
             String palabra = IO.readln("Introduce números para saber si son positivos o no (escribir mango sale del bucle) ");
