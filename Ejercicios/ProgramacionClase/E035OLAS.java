@@ -13,14 +13,9 @@ public class E035OLAS {
             inversidad = true;
         }
 
-        if (inversidad) {
-            for (int i = 0; i < numOlas; i++) {
-                imprimirOla(anchoOlas, inversidad);
-            }
-        } else {
-            for (int i = 0; i < numOlas; i++) {
-                imprimirOla(anchoOlas, inversidad);
-            }
+
+        for (int i = 0; i < numOlas; i++) {
+            imprimirOla(anchoOlas, inversidad);
         }
     }
 
