@@ -20,13 +20,8 @@ public class E035OLAS {
     }
 
     void imprimirOla(int anchoOla, boolean inversidad) {
-        if (inversidad) {
-            imprimirTriangulo(anchoOla, inversidad);
-            imprimirTrianguloInverso(anchoOla - 1, inversidad);
-        } else {
-            imprimirTriangulo(anchoOla, inversidad);
-            imprimirTrianguloInverso(anchoOla - 1, inversidad);
-        }
+        imprimirTriangulo(anchoOla, inversidad);
+        imprimirTrianguloInverso(anchoOla - 1, inversidad);
     }
 
     void imprimirTriangulo(int ancho, boolean contieneEspacios) {
