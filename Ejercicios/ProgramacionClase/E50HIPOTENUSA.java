@@ -13,7 +13,7 @@ public class E50HIPOTENUSA {
         double numeroPedido = 0;
         while (numeroPedido <= 0) {
             try {
-                numeroPedido = Double.parseDouble(IO.readln("Introduce un numero decimal que no sea negativo: "));
+                numeroPedido = Double.parseDouble(IO.readln("Introduce un numero que puede ser decimal que no sea negativo: "));
             } catch (Exception enrique) {
                 IO.println("No se permite texto ni numeros negativos o 0, intentelo de nuevo.");
             }
