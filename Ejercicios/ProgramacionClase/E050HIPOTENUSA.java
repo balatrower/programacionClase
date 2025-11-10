@@ -1,6 +1,6 @@
 package ProgramacionClase;
 
-public class E50HIPOTENUSA {
+public class E050HIPOTENUSA {
     void main() {
         IO.println("La hipotenusa de los catetos dados es de: " + calcularHipotenusa(pedirNumeroPositivoDecimalConControlDeErrores(), pedirNumeroPositivoDecimalConControlDeErrores()));
     }

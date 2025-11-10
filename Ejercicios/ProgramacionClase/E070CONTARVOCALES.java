@@ -1,5 +1,3 @@
-import java.util.ArrayList;
-
 void main() {
     String texto = IO.readln("Introduce un texto para contar cuantas vocales tiene: ");
 

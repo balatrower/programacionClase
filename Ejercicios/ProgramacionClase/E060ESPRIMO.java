@@ -1,6 +1,6 @@
 package ProgramacionClase;
 
-public class E60ESPRIMO {
+public class E060ESPRIMO {
     void main() {
         boolean primo = esPrimoOptimizado(pedirNumeroPositivoEnteroConControlDeErrores());
 
