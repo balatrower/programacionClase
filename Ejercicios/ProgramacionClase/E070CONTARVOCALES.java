@@ -1,7 +1,7 @@
 void main() {
     String texto = IO.readln("Introduce un texto para contar cuantas vocales tiene: ");
 
-    IO.println("El texto: " + texto + " tiene: " + contarVocales(texto) + " vocales");
+    System.out.format("El texto: %s tiene: %d vocales", texto, contarVocales(texto));
 }
 
 int contarVocales(String texto) {
