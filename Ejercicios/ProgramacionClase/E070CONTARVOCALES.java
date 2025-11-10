@@ -7,7 +7,7 @@ void main() {
 int contarVocales(String texto) {
     int contadorVocales = 0;
     String textoMinuscula = texto.toLowerCase();
-    Character[] arrayVocalesTilde = {'á', 'é', 'í', 'ó', 'ú'};
+    Character[] arrayVocalesTilde = {'á', 'é', 'í', 'ó', 'ú', 'ü'};
     Character[] arrayVocales = {'a', 'e', 'i', 'o', 'u'};
 
     for (int i = 0; i < texto.length(); i++) {
