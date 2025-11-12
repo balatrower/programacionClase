@@ -1,27 +1,31 @@
-boolean esVocal(char caracter) {
-    caracter = Character.toLowerCase(caracter);
+package ProgramacionClase;
 
-    return switch (caracter) {
-      case 'a', 'e', 'i', 'o', 'u', 'á', 'é', 'í', 'ó', 'ú' -> true;
+public class E071CONTARVOCALESCONSWITCH {
+    boolean esVocal(char caracter) {
+        caracter = Character.toLowerCase(caracter);
 
-      default -> false;
-    };
-}
+        return switch (caracter) {
+            case 'a', 'e', 'i', 'o', 'u', 'á', 'é', 'í', 'ó', 'ú' -> true;
 
-private int contarVocales(String texto) {
-    int contadorVocales = 0;
-
-    for (int pos = 0; pos < texto.length(); pos++) {
-        char c = texto.charAt(pos);
-        if (esVocal(c)) contadorVocales++;
+            default -> false;
+        };
     }
 
-    return contadorVocales;
-}
+    private int contarVocales(String texto) {
+        int contadorVocales = 0;
 
-void main() {
-    IO.println("Introduzca el texto:");
-    String texto = IO.readln();
+        for (int pos = 0; pos < texto.length(); pos++) {
+            char c = texto.charAt(pos);
+            if (esVocal(c)) contadorVocales++;
+        }
 
-    IO.println(String.format("El string tiene %d vocales.", contarVocales(texto)));
+        return contadorVocales;
+    }
+
+    void main() {
+        IO.println("Introduzca el texto:");
+        String texto = IO.readln();
+
+        IO.println(String.format("El string tiene %d vocales.", contarVocales(texto)));
+    }
 }
