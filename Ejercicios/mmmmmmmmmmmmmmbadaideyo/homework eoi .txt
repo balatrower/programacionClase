@@ -19,3 +19,25 @@ homework
 page 10 vocabulary workbook
 para hacer un listening el dia siguiente
 cambio pa ver si fucniona
+
+/////////////////////////////////////////////
+cosas clase
+examen robotica una parte tipo test de teoria
+nos da imagen de circuito
+decir que resistencias flatan
+o que componentes tienen
+otro de un esquema identificar o lo mismo que la anterior
+
+resistencia de x ohmios y se necesita decir colores (nos da la tabla) 
+o el tipo de resistencia del otro tipo que no es la normal
+problemas de ley de ohm.
+sacar de x voltios cuantos leds rojos podrias poner en un esquema 4 seria para 9v por ejemplo
+porque consumen 2v 
+si no se tiene resistencia de ohm iguales, cojer la que mas se acerque por arriba
+no memorizar tablas, nos las da el los daotos, solo saber calcularlos
+multimetro polimetro, nos da esquema y decir qe nos marcara (calcular la tension que nos marcaria o wtv)
+si no se dice nada de led, led 2v y corriente 1.2A creo qe dijo, verificar led rojo que sera ese.
+voltaje se puede medir en paralelo, corriente no, si se mide en intensidad en serie, voltaje en paralelo
+circuito cerrado pita si no no, aunque las patas del multimetro no cuentan para cerrar el circuito.
+las cosas que no hemos hecho calculos y vistas en fisica solo -
+-saber conceptos de resistencias, condensadores, etc, eso entrara en el test
