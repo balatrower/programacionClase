@@ -3,15 +3,14 @@ package B100_ARRAYS;
 public class E104SUMATOTAL {
     void main() {
         IO.println("Cantidad de numeros para calcular su suma total: ");
-        int cantidadNumeros;
-        do {
-            cantidadNumeros = pedirNumeroPositivoEnteroConControlDeErrores();
-        } while (cantidadNumeros <= 0);
+        int cantidadNumeros = pedirNumeroPositivoEnteroConControlDeErrores();
 
         int[] numeros = new int[cantidadNumeros];
 
+        IO.println("Añadir numeros para calcular su suma total: ");
         for (int i = 0; i < cantidadNumeros; i++) {
-            numeros[i] = i + 1;
+            IO.println("Numeros restantes: " + (cantidadNumeros - i));
+            numeros[i] = pedirNumeroPositivoEnteroConControlDeErrores();
         }
 
         int sumaTotal = 0;
@@ -20,7 +19,6 @@ public class E104SUMATOTAL {
         }
 
         IO.println("Suma total: " + sumaTotal);
-        IO.println("Verificacion con formula de Gauss: " + cantidadNumeros * (cantidadNumeros + 1) / 2);
     }
 
     int pedirNumeroPositivoEnteroConControlDeErrores() {
