@@ -14,11 +14,22 @@ y el resto de dias que queden practicar speaking para el dialogue de enero
 notas el 16 enero en raices
 
 homework!!!!!!!!!
-READING ACTIVITIES 4A/B/C PAGE 24 READING SB
-WORKBOOK PAGE 12 (NO SE SI ENTERA O DEL TEMA DE ELIPSES Y SUSTITUCION)
+mandar la letter of complaint a la profe por mail el lunes como maximo y hacerla modo examen
+page 135 2c students book
 
 notes!!!!!!!!!!!
 
 
 /////////////////////////////////////////////
 cosas clase grado
+
+Se desea diseñar una base de datos para una empresa de ventas que tiene representantes (R) en las distintas áreas (A) donde venden sus productos (P). 
+Suponemos que: 
+a)	Los representantes tienen un código CR y un conjunto de atributos AR. Análogamente las áreas tienen CA y AA y los productos CP y AP.
+b)	En cada A hay varios R y cada R trabaja en varias A.
+c)	En todas las A se venden todos los P.
+d)	Un R puede vender varios P y cada P se vede por varios R.
+e)	Nunca dos R venden el mismo P en la misma A.
+f)	Todo R vende el mismo conjunto de P en cada A donde trabaja.
+Se piden las dependencias que se deducen de cada uno de los supuestos del enunciado, si de algún supuesto se deduce la inexistencia de alguna dependencia indíquelo también, además, se pide la estructura relacional que considere mas adecuada analizando el nivel de normalización de cada una de las relaciones.
+
