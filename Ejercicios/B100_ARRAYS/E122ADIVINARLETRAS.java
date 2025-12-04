@@ -10,10 +10,48 @@ void main() {
 
     IO.println("\n\n\n\n\n\n\n\n");
 
-    boolean[] respuestasCorrectas = new boolean[numeroLetrasSecretas];
+    int contadorLetraActual = 0;
+    boolean todasAcertadas = false;
+    boolean[] letrasAcertadas = new boolean[numeroLetrasSecretas];
+    IO.println("Comienzo de juego, a adivinar letras jugador 2!!");
     do {
+        char letraIntroducida = IO.readln("Introduce letra para adivinar: ").charAt(0);
+        if (verificarLetraExiste(letraIntroducida, letrasSecretas)) {
+            if (contadorLetraActual == 0) {
+                IO.println("Adivinaste una letra!!");
+                letrasAcertadas[contadorLetraActual] = true;
+                contadorLetraActual++;
+            } else if (letrasSecretas[contadorLetraActual - 1] == letraIntroducida) {
+                IO.println("Esa letra ya esta dicha");
+            } else {
+                IO.println("Adivinaste una letra!!");
+                letrasAcertadas[contadorLetraActual] = true;
+                contadorLetraActual++;
+            }
+        }
 
-    } while ();
+        todasAcertadas = verificarSiHaGanado(letrasAcertadas);
+    } while (!todasAcertadas);
+    IO.println("Ganaste colega!!!");
+}
+
+boolean verificarSiHaGanado(boolean[] arrayLetrasAcertadas) {
+    int contadorAciertos = 0;
+    for (int i = 0; i < arrayLetrasAcertadas.length - 1; i++) {
+        if (arrayLetrasAcertadas[i]) {
+            contadorAciertos++;
+        }
+    }
+    return contadorAciertos == arrayLetrasAcertadas.length;
+}
+
+boolean verificarLetraExiste(char letra, char[] arrayLetras) {
+    for (int i = 0; i < arrayLetras.length - 1; i++){
+        if (arrayLetras[i] == letra) {
+            return true;
+        }
+    }
+    return false;
 }
 
 int pedirNumeroPositivoMayorQueUnoConControlDeErrores() {
