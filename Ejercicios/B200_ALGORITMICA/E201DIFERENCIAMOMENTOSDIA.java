@@ -17,8 +17,9 @@ public class E201DIFERENCIAMOMENTOSDIA {
         IO.println("Minutos: ");
         int minutos2 = pedirNumeroMinutos();
 
-        int horasDiferecia = Math.abs(horas1 - horas2);
-        int minutosDiferencia = Math.abs(minutos1 - minutos2);
+        int diferenciaMinutosTotal = Math.abs((horas1 * 60 + minutos1) - (horas2 * 60 + minutos2));
+        int horasDiferecia = diferenciaMinutosTotal / 60;
+        int minutosDiferencia = diferenciaMinutosTotal % 60;
 
         System.out.printf("La diferencia es de %02d:%02d.", horasDiferecia, minutosDiferencia);
     }
