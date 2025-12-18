@@ -2,7 +2,7 @@ package B900_PROGRAMAME;
 
 import java.util.Scanner;
 
-public class E913DIBUJARTABLEROSAJEDREZ162 {
+public class E930DIBUJARTABLEROSAJEDREZ162 {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
         int tamanyoCuadrados = 0;
