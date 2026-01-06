@@ -21,7 +21,7 @@ public static String pedirFraseUsuario() {
 }
 
 public static String formatearFrase(String fraseAFormatear) {
-    char[] caracteresAQuitar = {';', ':', '.', ',', '-', '_', '=', '+', '"', '(', ')', '[', ']', '{', '}'};
+    char[] caracteresAQuitar = {';', ':', '.', ',', '-', '_', '=', '+', '"', '(', ')', '[', ']', '{', '}', ' '};
     StringBuilder fraseFormateada = new StringBuilder();
     for (char caracterActual: fraseAFormatear.toLowerCase().toCharArray()) {
         boolean esCaracterProhibido = false;
@@ -79,11 +79,57 @@ public static void dibujarHistogramaVertical(String fraseFormateada) {
 }
 
 public static void dibujarHistogramaHorizontal(String fraseFormateada) {
-    char[] arrayLetrasAparecenOrdenado = devolverArrayCaracteresOrdenadoDeUnaFraseFormateada(fraseFormateada);
     char[] abecedario = crearAbecedario();
+    int[] arrayCantidadAparicionesLetra = sacarCantidadAparicionesCadaLetraEnFrase(fraseFormateada);
+    int mayorCantidadApariciones = sacarNumeroMaximoApariciones(arrayCantidadAparicionesLetra);
 
-    int[] arrayValorAparicionesLetraEnFrase = new int[abecedario.length];
-    for (int i = 0; i  < abecedario.length; i++) {
-
+    for (int i = 0; i < mayorCantidadApariciones; i++) {
+        IO.print("|");
+        for (int j = 0; j < abecedario.length; j++) {
+            int valorLetraActual = arrayCantidadAparicionesLetra[j];
+            if (valorLetraActual == mayorCantidadApariciones - i) {
+                IO.print("*|");
+                arrayCantidadAparicionesLetra[j] = arrayCantidadAparicionesLetra[j] - 1;
+            } else {
+                IO.print(" |");
+            }
+        }
+        IO.print("\n");
     }
+
+    //imprimir leyenda histograma
+    IO.print("|");
+    for (char letraActual: abecedario) {
+        IO.print(letraActual + "|");
+    }
+    IO.print("\n");
+}
+
+public static int sacarNumeroMaximoApariciones(int[] arrayASacarValor) {
+    int valorMaximo = 0;
+    for (int valorActual: arrayASacarValor) {
+        if (valorActual > valorMaximo) {
+            valorMaximo = valorActual;
+        }
+    }
+    return valorMaximo;
+}
+
+public static int[] sacarCantidadAparicionesCadaLetraEnFrase(String frase) {
+    char[] abecedario = crearAbecedario();
+    int[] arrayCantidadApariciones = new int[abecedario.length];
+    char[] arrayLetrasAparecenFraseOrdenadas = devolverArrayCaracteresOrdenadoDeUnaFraseFormateada(frase);
+
+    for (int i = 0; i  < abecedario.length; i++) {
+        char letraActual = abecedario[i];
+        int contadorLetraActual = 0;
+        for (char letraAProcesar: arrayLetrasAparecenFraseOrdenadas) {
+            if (letraAProcesar == letraActual) {
+                contadorLetraActual++;
+            }
+        }
+        arrayCantidadApariciones[i] = contadorLetraActual;
+    }
+
+    return arrayCantidadApariciones;
 }
