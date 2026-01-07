@@ -6,7 +6,7 @@ public class E220DESPLAZAMIENTOCIRCULAR {
     void main() {
         do {
             IO.println(Arrays.toString(numeros));
-            char opcionUsuario = IO.readln("Introduce i para izquierda o d para derecha, o x para salir.\n").charAt(0);
+            char opcionUsuario = IO.readln("Introduce i para izquierda o d para derecha, o x para salir.\n").toLowerCase().charAt(0);
 
             if (opcionUsuario == 'x') {
                 IO.println("Terminamos con los desplazamientos.");
