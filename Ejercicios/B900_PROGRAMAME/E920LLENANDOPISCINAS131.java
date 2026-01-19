@@ -27,9 +27,13 @@ public class E920LLENANDOPISCINAS131 {
             vecino = sacarNumeroViajes(piscinaB, barrenyoB, pierdeViajeB);
 
 
-            if (yo == vecino) System.out.println("EMPATE " + yo);
-            else if (yo < vecino) System.out.println("YO " + yo);
-            else System.out.println("VECINO " + vecino);
+            if (yo == vecino) {
+                System.out.println("EMPATE " + yo);
+            } else if (yo < vecino) {
+                System.out.println("YO " + yo);
+            } else {
+                System.out.println("VECINO " + vecino);
+            }
         }
 
     }
