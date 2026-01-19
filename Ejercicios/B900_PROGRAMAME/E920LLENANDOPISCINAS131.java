@@ -7,18 +7,17 @@ public class E920LLENANDOPISCINAS131 {
 
         final Scanner s = new Scanner(System.in);
 
-        int piscinaA, barrenyoA, pierdeViajeA, piscinaB, barrenyoB, pierdeViajeB;
         int yo = 0;
         int vecino = 0;
 
         while (true) {
 
-            piscinaA  = s.nextInt();
-            barrenyoA = s.nextInt();
-            pierdeViajeA   = s.nextInt();
-            piscinaB  = s.nextInt();
-            barrenyoB = s.nextInt();
-            pierdeViajeB   = s.nextInt();
+            int piscinaA  = s.nextInt();
+            int barrenyoA = s.nextInt();
+            int pierdeViajeA   = s.nextInt();
+            int piscinaB  = s.nextInt();
+            int barrenyoB = s.nextInt();
+            int pierdeViajeB   = s.nextInt();
 
             if (piscinaA == 0 || piscinaB == 0) {
                 break;
