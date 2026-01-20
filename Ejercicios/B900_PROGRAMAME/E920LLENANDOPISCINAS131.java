@@ -11,7 +11,6 @@ public class E920LLENANDOPISCINAS131 {
         int vecino = 0;
 
         while (true) {
-
             int piscinaA  = s.nextInt();
             int barrenyoA = s.nextInt();
             int pierdeViajeA   = s.nextInt();
