@@ -1,4 +1,4 @@
-package B300_OOPBASICA.E303NUMEROINTELIGENTEBASICO;
+package B300_OOPBASICA.E304NUMEROINTELIGENTEBASICO;
 
 public class NumeroInteligente {
     private int valor;

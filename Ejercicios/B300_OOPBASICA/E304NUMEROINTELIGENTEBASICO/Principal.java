@@ -1,4 +1,4 @@
-package B300_OOPBASICA.E303NUMEROINTELIGENTEBASICO;
+package B300_OOPBASICA.E304NUMEROINTELIGENTEBASICO;
 
 public class Principal {
     void main() {
@@ -27,6 +27,12 @@ public class Principal {
             numerete.incrementar();
         } while (numerete.getValor() <= 100);
 
+        /*
+            MODO DE HACERLO ORIENTADO A OBJETOS>
+            for (NumeroInteligente n = new numeroInteligente; n.getValor() <= 100; n.incrementar()) {
+                IO.println(n.getValor());
+            }
+        */
 
         IO.println();
 
