@@ -79,8 +79,10 @@ public class Contador {
     }
 
     public void setPaso(int paso) {
-        if      (paso <= 1) this.redondeo = false; //no tiene sentido redondear a 1, deactivar redondeo.
-        else                   this.paso = paso; //mejor desactivar redondeo que hacer algo que el usuario no quiere.
+        if (paso <= 1) {
+            this.redondeo = false; //no tiene sentido redondear a 1 o 0, deactivar redondeo, mejor desactivar redondeo que hacer algo que el usuario no quiere.
+            this.paso = 1; // previene para cuando paso originalmente era 0 o negativo
+        } else this.paso = paso;
     }
 
     public int getPaso() {
@@ -100,10 +102,10 @@ public class Contador {
     }
 
     public void incrementar() {
-        if (redondeo) {
-            incrementar(paso);
-        } else {
+        if (this.paso == 1) {
             incrementar(1);
+        } else {
+            incrementar(paso);
         }
     }
 
@@ -112,10 +114,10 @@ public class Contador {
     }
 
     public void decrementar() {
-        if (redondeo) {
-            incrementar(paso);
+        if (this.paso == 1) {
+            decrementar(1);
         } else {
-            incrementar(1);
+            decrementar(paso);
         }
     }
 
