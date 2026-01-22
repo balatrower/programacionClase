@@ -2,7 +2,7 @@ package B900_PROGRAMAME;
 
 import java.util.Scanner;
 
-public class E920CASTILLOSDENAIPES741 {
+public class E921CASTILLOSDENAIPES741 {
     public static void main(String[] args) {
         Scanner entrada = new Scanner(System.in);
         int numCasos = entrada.nextInt();
