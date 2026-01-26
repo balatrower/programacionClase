@@ -13,7 +13,7 @@ public class E822SUMATOTALRECURSIVO {
         if (n == 0) {
             return 0;
         } else {
-            return sumaTotal(0 + 1);
+            return n + sumaTotal(n - 1);
         }
     }
 }
