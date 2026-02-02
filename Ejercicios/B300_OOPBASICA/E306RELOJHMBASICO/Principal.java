@@ -1,4 +1,4 @@
-package B300_OOPBASICA.E305RELOJHMBASICO;
+package B300_OOPBASICA.E306RELOJHMBASICO;
 
 public class Principal {
     void main() {

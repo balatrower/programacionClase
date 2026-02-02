@@ -1,4 +1,4 @@
-package B300_OOPBASICA.E307RELOJTOTALMINUTOSBASICO;
+package B300_OOPBASICA.E307RELOJCOMPLETOEQUALSCLONE;
 
 public class Reloj {
     private int totalMinutos = 495;
@@ -15,17 +15,40 @@ public class Reloj {
         this.totalMinutos = totalMins;
     }
 
+    @Override
+    public boolean equals(Object objeto) {
+        if (this == objeto) return true;
+
+        if (objeto == null) return false;
+
+        if (!(objeto instanceof Reloj)) return false;
+
+        Reloj comparado = (Reloj) objeto;
+
+        return (this.totalMinutos == comparado.totalMinutos);
+    }
+
+    @Override
+    public Reloj clone() {
+        Reloj clon = new Reloj();
+
+        clon.setTotalMinutos(this.totalMinutos);
+
+        return clon;
+    }
+
+    @Override
+    public String toString() {
+        int[] tiempo = transformarArrayTiempo(this.totalMinutos);
+        return String.format("%02d:%02d", tiempo[0], tiempo[1]);
+    }
+
     public void setTotalMinutos(int totalMinutos) {
         this.totalMinutos = totalMinutos;
     }
 
     public int getTotalMinutos() {
         return totalMinutos;
-    }
-
-    public String toString() {
-        int[] tiempo = transformarArrayTiempo(this.totalMinutos);
-        return String.format("%02d:%02d", tiempo[0], tiempo[1]);
     }
 
     public void tick() {
@@ -73,3 +96,4 @@ public class Reloj {
         return totalMinutos;
     }
 }
+
