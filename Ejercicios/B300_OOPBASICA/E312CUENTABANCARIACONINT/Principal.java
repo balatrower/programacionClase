@@ -44,5 +44,6 @@ public class Principal {
         IO.println(c3);
         c3.cargarRecibo(1); //da error porque maximo descubierto superado por uno
         IO.println(c3);
+
     }
 }

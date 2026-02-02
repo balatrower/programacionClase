@@ -28,11 +28,11 @@ public class Cuenta {
     public String toString() {
         String descubierto = (admiteDescubierto) ? "SI" : "NO";
         if (saldo <= 0 && descubiertoActual > 0) {
-            return String.format("La cuenta tiene -%.2f de saldo y %s admite descubiertos con un maximo de %d", (formatearADecimal(this.saldo + convertirDouble(this.descubiertoActual))), descubierto, convertirDouble(this.descubiertoMaximo));
+            return String.format("La cuenta tiene -%.2f de saldo y %s admite descubiertos con un maximo de %.2f", (formatearADecimal(this.saldo + this.descubiertoActual)), descubierto, formatearADecimal(this.descubiertoMaximo));
         } else if (descubierto.equals("SI")) {
             return String.format("La cuenta tiene %.2f de saldo y %s admite descubiertos con un maximo de %.2f", formatearADecimal(this.saldo), descubierto, formatearADecimal(this.descubiertoMaximo));
         } else {
-            return String.format("La cuenta tiene %.2f de saldo y %s admite descubiertos", (formatearADecimal(this.saldo + convertirDouble(this.descubiertoActual))), descubierto);
+            return String.format("La cuenta tiene %.2f de saldo y %s admite descubiertos", (formatearADecimal(this.saldo + this.descubiertoActual)), descubierto);
         }
     }
 
