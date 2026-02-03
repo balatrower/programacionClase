@@ -2,7 +2,7 @@ package B300_OOPBASICA.E320GLOBOSEXPLOSIVOS;
 
 public class Principal {
     void main() {
-        Globo g1 = new Globo(25);
+        Globo g1 = new Globo();
         Globo g2 = new Globo();
         Globo g3 = new Globo();
         Globo g4 = new Globo();
