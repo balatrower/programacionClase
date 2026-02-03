@@ -105,7 +105,7 @@ public class Interfaz {
 
             IO.println("TURNO DEL JUGADOR 2");
             turnoJ2(g);
-        } while (!(g1.haExplotado()));
+        } while (!(g.haExplotado()));
     }
 
     private Globo elegirGlobo(int idGlobo) {
