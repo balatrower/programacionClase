@@ -23,7 +23,7 @@ public class Bombo {
         ArrayList<Integer> dentro = new ArrayList<>();
         int[][] bolas = getBolas();
 
-        for (int i = 0; i < bolas.length; i++) {
+        for (int i = 0; i < bolas[0].length; i++) {
             if (bolas[1][i] == 0) {
                 dentro.add(bolas[0][i]);
             } else {
@@ -37,10 +37,11 @@ public class Bombo {
     private void inicializarBolas(int cantidadBolas) {
         setBolas(new int[2][cantidadBolas]);
         int[][] bolas = getBolas();
-        for (int i = 0; i < bolas[1].length; i++) {
+        for (int i = 0; i < bolas[0].length; i++) {
             bolas[0][i] = i + 1; //valor 1 hasta bolas.length + 1 ya que bingo no usa 0
             bolas[1][i] = 0; //0 no ha salido, 1 ha salido
         }
+        setBolas(bolas); //si no, los cambios en el array no se guardan
     }
 
     public int dameBola() {
@@ -49,7 +50,7 @@ public class Bombo {
         int indiceBola = 0; //indiceBola = 0 hasta bolas.length - 1, usado para indices dentro de array bolas
 
         do {
-            double indiceBolaDouble = Math.random() * getBolas().length;
+            double indiceBolaDouble = Math.random() * bolas[0].length;
             indiceBola = (int) indiceBolaDouble; //separado el typecast, si no da 0
         } while (haSalido(indiceBola));
 
