@@ -41,7 +41,6 @@ public class Bombo {
             bolas[0][i] = i + 1; //valor 1 hasta bolas.length + 1 ya que bingo no usa 0
             bolas[1][i] = 0; //0 no ha salido, 1 ha salido
         }
-        setBolas(bolas); //si no, los cambios en el array no se guardan
     }
 
     public int dameBola() {
