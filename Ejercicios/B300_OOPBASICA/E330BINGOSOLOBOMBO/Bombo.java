@@ -45,8 +45,8 @@ public class Bombo {
 
     public int dameBola() {
         int[][] bolas = getBolas();
-        int numeroBola = 0; //numeroBola = 1 hasta bolas.length, usado para valor bola
-        int indiceBola = 0; //indiceBola = 0 hasta bolas.length - 1, usado para indices dentro de array bolas
+        int numeroBola; //numeroBola = 1 hasta bolas.length, usado para valor bola
+        int indiceBola; //indiceBola = 0 hasta bolas.length - 1, usado para indices dentro de array bolas
 
         do {
             double indiceBolaDouble = Math.random() * bolas[0].length;
