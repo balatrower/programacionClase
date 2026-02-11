@@ -1,6 +1,6 @@
 package B800_VARIOS;
 
-public class E832FIBONNACIRECURSIVO {
+public class E823FIBONNACIRECURSIVO {
     void main() {
         int numero = -1;
         do {
