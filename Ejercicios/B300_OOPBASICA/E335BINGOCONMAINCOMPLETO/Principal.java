@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Principal {
     void main() {
         int cantidadCartones = 5;
-        Bombo b = new Bombo(55);
+        Bombo b = new Bombo(20);
         ArrayList<Carton> cartones = new ArrayList<>();
         inicializarCartones(b, cartones, cantidadCartones);
 
@@ -21,7 +21,7 @@ public class Principal {
 
                 if (cartonActual.hayBingo()) {
                     hayBingo = true;
-                    numeroGanador = numeroGanador + i;
+                    numeroGanador = numeroGanador + " Jugador " + i;
                 }
 
                 IO.println("Jugador " + i);
@@ -31,7 +31,7 @@ public class Principal {
             IO.println("");
         } while (!hayBingo);
 
-        IO.println("El ganador es: " + numeroGanador);
+        IO.println("El ganador es:" + numeroGanador);
     }
 
     private void inicializarCartones(Bombo bombo, ArrayList<Carton> cartones, int cantidadCartones) {
