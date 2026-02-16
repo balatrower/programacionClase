@@ -73,7 +73,7 @@ public class Carton {
         int indice = getNumeros().indexOf(bola);
 
         if (indice != -1) {
-            getMarcados().add(indice, true);
+            getMarcados().set(indice, true);
         }
     }
 

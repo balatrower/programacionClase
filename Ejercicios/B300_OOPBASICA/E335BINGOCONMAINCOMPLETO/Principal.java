@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class Principal {
     void main() {
         int cantidadCartones = 5;
-        Bombo b = new Bombo(16);
+        Bombo b = new Bombo(55);
         ArrayList<Carton> cartones = new ArrayList<>();
         inicializarCartones(b, cartones, cantidadCartones);
 
