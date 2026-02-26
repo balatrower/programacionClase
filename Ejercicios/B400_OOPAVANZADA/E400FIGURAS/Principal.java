@@ -20,8 +20,11 @@ public class Principal {
         figuras[1] = c1;
         figuras[2] = r1;
 
+        double areaTotal = 0;
         for (Figura f : figuras) {
-            System.out.println(f.calcularArea());
+            areaTotal = areaTotal + f.calcularArea();
         }
+
+        System.out.println("El area total de todas las figuras es: " + areaTotal);
     }
 }
