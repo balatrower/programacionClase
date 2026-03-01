@@ -1,8 +1,8 @@
 package B400_OOPAVANZADA.E401FIGURASDECOLORES;
 
 public class Cuadrado extends Rectangulo {
-    public Cuadrado(double lado) {
-        super(lado, lado);
+    public Cuadrado(String color, double lado) {
+        super(color, lado, lado);
     }
 
     public void setBase(double base) {
@@ -22,5 +22,10 @@ public class Cuadrado extends Rectangulo {
     public void setLado(double lado) {
         this.base = lado;
         this.altura = lado;
+    }
+
+    @Override
+    public String toString() {
+        return super.getColor() + "Cuadrado de lado " + getLado() + "\u001B[0m";
     }
 }

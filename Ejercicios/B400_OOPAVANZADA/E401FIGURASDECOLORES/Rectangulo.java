@@ -4,7 +4,8 @@ public class Rectangulo extends Figura {
     protected double base;
     protected double altura;
 
-    public Rectangulo(double base, double altura) {
+    public Rectangulo(String color, double base, double altura) {
+        super(color);
         setBase(base);
         setAltura(altura);
     }
@@ -27,5 +28,10 @@ public class Rectangulo extends Figura {
 
     public void setAltura(double altura) {
         this.altura = altura;
+    }
+
+    @Override
+    public String toString() {
+        return super.getColor() + "Rectangulo de base " + getBase() + " y altura " + getAltura() + "\u001B[0m";
     }
 }

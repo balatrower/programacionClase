@@ -2,12 +2,12 @@ package B400_OOPAVANZADA.E401FIGURASDECOLORES;
 
 public class Principal {
     static void main(String[] args) {
-        Figura f1 = new Circulo(70);
-        Figura f2 = new Cuadrado(20);
-        Figura f3 = new Rectangulo(23, 45);
-        Circulo c1 = new Circulo(60);
-        Cuadrado q2 = new Cuadrado(30);
-        Rectangulo r3 = new Rectangulo(26, 67);
+        Figura f1 = new Circulo("\u001B[31m", 70);
+        Figura f2 = new Cuadrado("\u001B[36m", 20);
+        Figura f3 = new Rectangulo("\u001B[32m", 23, 45);
+        Circulo c1 = new Circulo("\u001B[33m", 60);
+        Cuadrado q2 = new Cuadrado("\u001B[34m", 30);
+        Rectangulo r3 = new Rectangulo("\u001B[35m", 26, 67);
 
         System.out.println(q2.getLado());
         q2.setBase(8.45);
@@ -23,6 +23,7 @@ public class Principal {
 
         double areaTotal = 0;
         for (Figura figura : figuras) {
+            System.out.println(figura.toString());
             System.out.println(figura.calcularArea());
             areaTotal = areaTotal + figura.calcularArea();
         }
