@@ -5,7 +5,7 @@ public class Principal {
         Animal[] animales = new Animal[4];
 
         animales[0] = new Pajaro(50);
-        animales[1] = new Perro(35);
+        animales[1] = new Conejo(35);
         animales[2] = new Gato(25);
         animales[3] = new Lagartija(30);
 
