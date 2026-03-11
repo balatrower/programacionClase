@@ -1,8 +1,8 @@
 package B400_OOPAVANZADA.E406RELOJESVARIADOS;
 
-public class Reloj {
-    private int h;
-    private int m;
+public abstract class Reloj {
+    protected int h;
+    protected int m;
 
     public Reloj() {
         // Se podría hacer así:
@@ -46,9 +46,7 @@ public class Reloj {
         this.m = m;
     }
 
-    public String toString() {
-        return String.format("%02d:%02d", h, m);
-    }
+    public abstract String toString();
 
     public boolean equals(Object obj) {
         // Se comprueba si obj es null. Si lo es, consideramos que somos distintos.
@@ -66,17 +64,17 @@ public class Reloj {
         // return ((this.h == ((Reloj) obj).h) && (this.m == ((Reloj) obj).m));
     }
 
-    public Reloj clone() {
-        Reloj clon = new Reloj();
-
-        clon.h = this.h;
-        clon.m = this.m;
-
-        return clon;
-
-        // Alternativa:
-        // return new Reloj(this.h, this.m);
-    }
+//    public Reloj clone() {
+//        Reloj clon = new Reloj();
+//
+//        clon.h = this.h;
+//        clon.m = this.m;
+//
+//        return clon;
+//
+//        // Alternativa:
+//        // return new Reloj(this.h, this.m);
+//    }
 
     private void normalizar() {
         // Alternativa 1, más sencilla pero menos eficiente:
@@ -136,11 +134,11 @@ public class Reloj {
         return diferencia;
     }
 
-    public Reloj diferenciaReloj(Reloj otro) {
-        int diferenciaMinutos = this.diferenciaMinutos(otro);
-
-        Reloj diferenciaReloj = new Reloj(diferenciaMinutos);
-
-        return diferenciaReloj;
-    }
+//    public Reloj diferenciaReloj(Reloj otro) {
+//        int diferenciaMinutos = this.diferenciaMinutos(otro);
+//
+//        Reloj diferenciaReloj = new Reloj(diferenciaMinutos);
+//
+//        return diferenciaReloj;
+//    }
 }
