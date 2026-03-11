@@ -1,4 +1,4 @@
-package b300oobasica.E305RelojHMBasico;
+package B400_OOPAVANZADA.E405RELOJESCOMPARABLES;
 
 import java.util.Arrays;
 
