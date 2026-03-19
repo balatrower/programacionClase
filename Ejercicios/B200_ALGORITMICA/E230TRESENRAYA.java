@@ -1,7 +1,10 @@
 package B200_ALGORITMICA;
 
+import java.util.Arrays;
+
 public class E230TRESENRAYA {
     void main() {
+        String ganador = "";
         boolean juegoTerminado = false;
         int idJugador1 = 1;
         int idJugador2 = 2;
@@ -10,15 +13,31 @@ public class E230TRESENRAYA {
         IO.println("Bienvenidos al juego de 3 en raya!");
         while (!juegoTerminado) {
             mostrarTablero(tablero);
+
             turno(idJugador1, tablero);
             if (verificarGanador(idJugador1, tablero)) {
                 juegoTerminado = true;
+                ganador = "El jugador 1!!";
                 break;
             }
 
+            mostrarTablero(tablero);
+
             turno(idJugador2, tablero);
-            if (verificarGanador(idJugador2 ,tablero)) juegoTerminado = true;
+            if (verificarGanador(idJugador2 ,tablero)) {
+                juegoTerminado = true;
+                ganador = "El jugador 2!!";
+                break;
+            }
+
+            if (verificarEmpate(tablero)) {
+                juegoTerminado = true;
+                ganador = "Ninguno, ha habido empate -_-";
+            }
         }
+
+        IO.println("El juego ha terminado!!");
+        IO.println("El ganador es: " + ganador);
     }
 
     void mostrarTablero(int[][] tablero) {
@@ -52,8 +71,8 @@ public class E230TRESENRAYA {
             int columna = sacarColumna(valoresFichaUsuario);
             int fila = sacarFila(valoresFichaUsuario);
 
-            if (tablero[columna][fila] == 0) {
-                tablero[columna][fila] = idJugador;
+            if (tablero[fila][columna] == 0) {
+                tablero[fila][columna] = idJugador;
                 turnoCompletado = true;
             } else {
                 IO.println("Ahi ya hay una ficha, escoje otro lugar");
@@ -63,19 +82,30 @@ public class E230TRESENRAYA {
 
     int[] escojerLugarFicha() {
         int[] valores = new int[2];
-        int temp = -1;
+        int temp = 0;
         while (temp <= 0) {
             try {
                 temp = Integer.parseInt(IO.readln("Introduce columna: "));
+
+                if (temp > 3) {
+                    temp = 3;
+                }
+
                 valores[0] = temp - 1; //usuario no empieza contando en 0
             } catch (Exception enrique) {
                 IO.println("Error: numero no valido, prueba otro");
             }
         }
 
+        temp = 0;
         while (temp <= 0) {
             try {
                 temp = Integer.parseInt(IO.readln("Introduce fila: "));
+
+                if (temp > 3) {
+                    temp = 3;
+                }
+
                 valores[1] = temp - 1; //usuario no empieza contando en 0
             } catch (Exception enrique) {
                 IO.println("Error: numero no valido, prueba otro");
@@ -110,5 +140,17 @@ public class E230TRESENRAYA {
         if (tablero[2][0] == idJugador && tablero[1][1] == idJugador && tablero[0][2] == idJugador) return true;
 
         return false;
+    }
+
+    boolean verificarEmpate(int[][] tablero) {
+        boolean huecoEncontrado = false;
+        for (int i = 0; i < tablero.length; i++) {
+            for (int j = 0; j < tablero[0].length; j++) {
+                if (tablero[i][j] == '-') {
+                    huecoEncontrado = true;
+                }
+            }
+        }
+        return huecoEncontrado;
     }
 }
