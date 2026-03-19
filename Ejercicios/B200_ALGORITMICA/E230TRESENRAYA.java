@@ -29,15 +29,11 @@ public class E230TRESENRAYA {
                 ganador = "El jugador 2!!";
                 break;
             }
-
-            if (verificarEmpate(tablero)) {
-                juegoTerminado = true;
-                ganador = "Ninguno, ha habido empate -_-";
-            }
         }
 
         IO.println("El juego ha terminado!!");
         IO.println("El ganador es: " + ganador);
+        mostrarTablero(tablero);
     }
 
     void mostrarTablero(int[][] tablero) {
@@ -71,12 +67,8 @@ public class E230TRESENRAYA {
             int columna = sacarColumna(valoresFichaUsuario);
             int fila = sacarFila(valoresFichaUsuario);
 
-            if (tablero[fila][columna] == 0) {
-                tablero[fila][columna] = idJugador;
-                turnoCompletado = true;
-            } else {
-                IO.println("Ahi ya hay una ficha, escoje otro lugar");
-            }
+            tablero[fila][columna] = idJugador;
+            turnoCompletado = true;
         } while (!turnoCompletado);
     }
 
@@ -142,7 +134,7 @@ public class E230TRESENRAYA {
         return false;
     }
 
-    boolean verificarEmpate(int[][] tablero) {
+    boolean verificarTableroCompelto(int[][] tablero) {
         boolean huecoEncontrado = false;
         for (int i = 0; i < tablero.length; i++) {
             for (int j = 0; j < tablero[0].length; j++) {
