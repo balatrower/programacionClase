@@ -4,7 +4,7 @@ public class Reloj {
     private int h;
     private int m;
 
-    public Reloj() {
+    public Reloj() throws HoraNoValidaException, MinutoNoValidoException {
         // Se podría hacer así:
         // h = 8;
         // m = 15;
@@ -13,20 +13,30 @@ public class Reloj {
         this(8, 15);
     }
 
-    public Reloj(int h, int m) {
+    public Reloj(int h, int m) throws HoraNoValidaException, MinutoNoValidoException {
+        if (h > 23 || h < 0) throw new HoraNoValidaException(); //primero las horas por si se hizo con h y m separados
+        if (m < 0) throw new MinutoNoValidoException(); // constructor de totalMinutos llama a super
+
         this.h = h;
         this.m = m;
 
         normalizar();
     }
 
-    public Reloj(int totalMinutos) {
+    public Reloj(int totalMinutos) throws DesbordamientoRelojException, HoraNoValidaException, MinutoNoValidoException {
         // Se podría hacer así:
         // h = 0;
         // m = totalMinutos;
         // normalizar();
 
         // Pero esto sería mejor, llamar a otro costructor sobrecargado:
+        if (totalMinutos >= 60 * 24 || totalMinutos < 0) {
+            int excesoMinutos = totalMinutos - (60 * 24 - 1);
+            if (totalMinutos < 0) {
+                excesoMinutos = totalMinutos;
+            }
+            throw new DesbordamientoRelojException(true, excesoMinutos);
+        }
         this(0, totalMinutos);
     }
 
@@ -67,13 +77,21 @@ public class Reloj {
     }
 
     public Reloj clone() {
-        Reloj clon = new Reloj();
+        Reloj clon = null;
+        do {
+            try {
+                clon = new Reloj();
 
-        clon.h = this.h;
-        clon.m = this.m;
+                clon.h = this.h;
+                clon.m = this.m;
+            } catch (HoraNoValidaException e) {
+                IO.println("Error en la clonacion del reloj: " + e.getClass());
+            } catch (MinutoNoValidoException e) {
+                IO.println("Error durante la clonacion del reloj: " + e.getClass());
+            }
+        } while (clon == null);
 
         return clon;
-
         // Alternativa:
         // return new Reloj(this.h, this.m);
     }
@@ -129,14 +147,17 @@ public class Reloj {
 
     public void sumar(int minutos) throws OperacionNegativaRelojException, DesbordamientoRelojException {
         if (minutos < 0) throw new OperacionNegativaRelojException();
-        if (60 * h + m + minutos >= 24 * 60) throw new DesbordamientoRelojException(true);
+        if (60 * h + m + minutos >= 24 * 60) {
+            int minutosExceso = minutos - (24 * 60);
+            throw new DesbordamientoRelojException(true, minutosExceso);
+        }
 
         m = m + minutos;
     }
 
     public void restar(int minutos) throws DesbordamientoRelojException, OperacionNegativaRelojException {
         if (minutos < 0) throw new OperacionNegativaRelojException();
-        if (60 * h + m - minutos < 0) throw new DesbordamientoRelojException(false);
+        if (60 * h + m - minutos < 0) throw new DesbordamientoRelojException(false, minutos);
 
         m = m - minutos;
     }
@@ -147,7 +168,7 @@ public class Reloj {
         return diferencia;
     }
 
-    public Reloj diferenciaReloj(Reloj otro) {
+    public Reloj diferenciaReloj(Reloj otro) throws HoraNoValidaException, MinutoNoValidoException, DesbordamientoRelojException {
         int diferenciaMinutos = this.diferenciaMinutos(otro);
 
         Reloj diferenciaReloj = new Reloj(diferenciaMinutos);

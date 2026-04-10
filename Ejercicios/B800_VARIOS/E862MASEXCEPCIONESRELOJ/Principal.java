@@ -6,31 +6,24 @@ import java.util.Scanner;
 public class Principal {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
-        Reloj reloj = new Reloj(23, 57);
-        boolean operacionOK = false;
-
-        System.out.println("Valor inicial: " + reloj + "\n");
+        Reloj reloj = null;
 
         do {
             try {
-                System.out.print("Indica los minutos que quieres sumar: ");
-                int minutos = teclado.nextInt();
-                reloj.sumar(minutos);
-                operacionOK = true;
-            } catch (OperacionNegativaRelojException e) {
-                System.out.println("Error: No puedes introducir minutos negativos.");
+                int totalMinutos = Integer.parseInt(IO.readln("Escribe una cantidad de minutos para darle a un reloj: "));
+                reloj = new Reloj(totalMinutos);
             } catch (DesbordamientoRelojException e) {
-                if (e.isSuperior()) System.out.println("Te has salido del día por ARRIBA (más de 24h).");
-                else System.out.println("Te has salido del día por ABAJO (menos de 00:00).");
-            } catch (InputMismatchException e) {
-                System.out.println("Introduce un número positivo válido. No me pongas letras ni cosas raras.");
-                teclado.nextLine();
+                System.out.println("Demasiados minutos, desbordamiento del reloj por: " + e.getExcesoMinutos());
+            } catch (HoraNoValidaException e) {
+                IO.println("Hora introducida no valida");
+            } catch (MinutoNoValidoException e) {
+                IO.println("Cantidad de minutos introducidos no validos");
             } catch (Exception e) {
-                System.out.println("Error inesperado: " + e.getMessage());
-                e.printStackTrace();
+                IO.println("Formato no valido, tienen que ser numeros solo");
             }
-        } while (!operacionOK);
+        } while (reloj ==  null);
 
-        System.out.println("\nValor final: " + reloj);
+        IO.println("Horas del reloj creado: " + reloj.getH());
+        IO.println("Minuto del reloj creado: " + reloj.getM());
     }
 }
