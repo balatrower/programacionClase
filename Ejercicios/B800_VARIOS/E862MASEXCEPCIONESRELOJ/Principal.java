@@ -18,12 +18,38 @@ public class Principal {
                 IO.println("Hora introducida no valida");
             } catch (MinutoNoValidoException e) {
                 IO.println("Cantidad de minutos introducidos no validos");
+            } catch (NumberFormatException e) {
+                IO.println("No puedes escribir caracteres de texto, solo numeros");
             } catch (Exception e) {
-                IO.println("Formato no valido, tienen que ser numeros solo");
+                IO.println("Error inesperado: ");
+                e.printStackTrace();
             }
         } while (reloj ==  null);
 
-        IO.println("Horas del reloj creado: " + reloj.getH());
-        IO.println("Minuto del reloj creado: " + reloj.getM());
+        boolean operacionOK = false;
+
+        System.out.println("Valor inicial: " + reloj + "\n");
+
+        do {
+            try {
+                System.out.print("Indica los minutos que quieres sumar: ");
+                int minutos = teclado.nextInt();
+                reloj.sumar(minutos);
+                operacionOK = true;
+            } catch (OperacionNegativaRelojException e) {
+                System.out.println("Error: No puedes introducir minutos negativos.");
+            } catch (DesbordamientoRelojException e) {
+                if (e.isSuperior()) System.out.println("Te has salido del día por ARRIBA (más de 24h).");
+                else System.out.println("Te has salido del día por ABAJO (menos de 00:00).");
+            } catch (InputMismatchException e) {
+                System.out.println("Introduce un número positivo válido. No me pongas letras ni cosas raras.");
+                teclado.nextLine();
+            } catch (Exception e) {
+                System.out.println("Error inesperado: " + e.getMessage());
+                e.printStackTrace();
+            }
+        } while (!operacionOK);
+
+        System.out.println("\nValor final: " + reloj);
     }
 }
