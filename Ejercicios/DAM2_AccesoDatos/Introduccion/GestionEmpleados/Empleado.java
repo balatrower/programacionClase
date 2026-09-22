@@ -36,8 +36,38 @@ public class Empleado {
     }
 
     public void setDni(String dni) {
+        dni = dni.toUpperCase();
+        int numeros = 0;
+        try {
+            numeros = Integer.parseInt(dni.substring(0, 8));
+        } catch (Exception enrique) {
+            IO.println("Error: Fallo al leer dni del empleado");
+        }
 
-        this.dni = dni;
+        if (numeros == 0) {
+            IO.println("Introduzca de nuevo SOLO los numeros del dni del empleado que intenta añadir: ");
+            do {
+                try {
+                    numeros = Integer.parseInt(IO.readln());
+                } catch (Exception enrique2) {
+                    IO.println("Error: numeros no validos, introduzcalos de nuevo");
+                }
+            } while (numeros == 0);
+        }
+
+
+        char letra = dni.charAt(8);
+        if (letra >= 'A' && letra <= 'Z') {
+            this.dni = Integer.toString(numeros) + letra; // dni en rango
+        } else {
+            do {
+                IO.println("Introduzca la letra del DNI del empleado");
+                letra = IO.readln().charAt(0);
+            } while (letra < 'A' || letra > 'Z');
+
+            this.dni = Integer.toString(numeros) + letra;
+        }
+
     }
 
     public String getApellidos() {
@@ -56,8 +86,16 @@ public class Empleado {
         this.salario = salario;
     }
 
-    boolean compareTo(Empleado empleado) {
+    @Override
+    public String toString() {
+        String telefono = Float.toString(getTelefono());
+        String telefonoFormateado = telefono.substring(0,3) + "-" + telefono.substring(3, telefono.length() - 2);
+        return String.format("Empleado: [DNI=%s, Nombre=%s, Apellido=%s, Teléfono=%s, Salario=%.1f]",
+                getDni(),getNombre(), getApellidos(), telefonoFormateado, getSalario());
+    }
+
+    public boolean compareTo(Empleado empleado) {
         ComparadorCadenas comparador = new ComparadorCadenas();
-        return  comparador.comparar(getDni(), empleado.getDni());
+        return comparador.comparar(getDni(), empleado.getDni());
     }
 }
